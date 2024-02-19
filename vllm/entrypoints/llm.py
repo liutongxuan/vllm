@@ -84,6 +84,7 @@ class LLM:
         enforce_eager: bool = False,
         max_context_len_to_capture: int = 8192,
         disable_custom_all_reduce: bool = False,
+        max_num_seqs: int = 64,
         **kwargs,
     ) -> None:
         if "disable_log_stats" not in kwargs:
@@ -104,6 +105,7 @@ class LLM:
             enforce_eager=enforce_eager,
             max_context_len_to_capture=max_context_len_to_capture,
             disable_custom_all_reduce=disable_custom_all_reduce,
+            max_num_seqs=max_num_seqs,
             **kwargs,
         )
         self.llm_engine = LLMEngine.from_engine_args(engine_args)
